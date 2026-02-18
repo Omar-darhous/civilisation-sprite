@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap");
+
+.pharaoh-bg {
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.9)),
+    url("/public/image1.png") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pharaoh-box {
+  width: 360px;
+  padding: 40px;
+  background: rgba(20, 15, 5, 0.75);
+  border: 2px solid #d4af37;
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
+  color: #f5e6b8;
+  font-family: "Cinzel", serif;
+  animation: rise 1s ease;
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+}
+
+.pharaoh-box h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #d4af37;
+  letter-spacing: 2px;
+}
+
+.pharaoh-box input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 18px;
+  background: transparent;
+  border: 1px solid #d4af37;
+  border-radius: 10px;
+  color: #fff;
+  font-family: "Cinzel", serif;
+}
+
+.pharaoh-box input::placeholder {
+  color: #e0c97a;
+}
+
+.pharaoh-box button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #d4af37, #b8962e);
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: "Cinzel", serif;
+  letter-spacing: 1px;
+}
+
+.pharaoh-box button:hover {
+  box-shadow: 0 0 15px #d4af37;
+}
+
+.pharaoh-box p {
+  margin-top: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.pharaoh-box span {
+  color: #d4af37;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.pharaoh-box {
+  animation: float 4s ease-in-out infinite;
+}
+.page {
+  animation: enterPage 0.6s ease forwards;
+}
+
+.page.exit {
+  animation: exitPage 0.4s ease forwards;
+}
+
+@keyframes enterPage {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes exitPage {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}

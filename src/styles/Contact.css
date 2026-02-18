@@ -1,0 +1,105 @@
+/* ===== Background ===== */
+
+.contact-page {
+  min-height: 100vh;
+  background-image: url("/public/image2.png"); /* غير الصورة لو عايز */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+}
+
+.contact-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+/* ===== Container ===== */
+
+.contact-container {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding-top: 120px;
+  color: white;
+}
+
+/* ===== Titles ===== */
+
+.contact-container h1 {
+  font-size: 42px;
+  color: gold;
+  margin-bottom: 10px;
+  animation: fadeDown 1s ease forwards;
+}
+
+.contact-container h2 {
+  margin-bottom: 40px;
+  font-weight: 300;
+  animation: fadeDown 1.2s ease forwards;
+}
+
+/* ===== Form ===== */
+
+.contact-form {
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: fadeUp 1.2s ease forwards;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  border-radius: 15px;
+  border: none;
+  outline: none;
+  font-size: 15px;
+}
+
+.contact-form textarea {
+  resize: none;
+}
+
+.contact-form button {
+  padding: 12px;
+  border-radius: 20px;
+  border: none;
+  background: gold;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.contact-form button:hover {
+  background: orange;
+  transform: scale(1.05);
+}
+
+/* ===== Animations ===== */
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

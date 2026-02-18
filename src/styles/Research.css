@@ -1,0 +1,90 @@
+.research-hero {
+  height: 50vh;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.9)),
+    url("/public/image2.png") center/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #d4af37;
+  font-family: Cinzel, serif;
+  animation: fadeIn 1.5s ease;
+}
+
+.research-container {
+  padding: 60px;
+  background: #f3e3c3;
+  display: grid;
+  gap: 40px;
+}
+
+.research-card {
+  display: flex;
+  gap: 30px;
+  background: #1d1406;
+  border-radius: 20px;
+  overflow: hidden;
+  color: #f5e6b8;
+  transition: 0.5s;
+  transform: translateY(50px);
+  opacity: 0;
+  animation: slideUp 1s forwards;
+}
+
+.research-card img {
+  width: 300px;
+  object-fit: cover;
+}
+
+.research-content {
+  padding: 20px;
+}
+
+.research-content h2 {
+  color: #d4af37;
+  margin-bottom: 15px;
+}
+
+.research-content a {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 8px 15px;
+  background: #d4af37;
+  color: black;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.research-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes slideUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .research-card {
+    flex-direction: column;
+  }
+
+  .research-card img {
+    width: 100%;
+  }
+}

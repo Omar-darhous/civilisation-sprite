@@ -1,0 +1,142 @@
+/* ===== Background Image ===== */
+
+.tourism-page {
+  min-height: 100vh;
+  background-image: url("/public/image2.png"); /* غيرها لو عايز */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+}
+
+/* Overlay */
+.tourism-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.tourism-container {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding-top: 120px;
+  color: white;
+}
+
+/* ===== Title Animation ===== */
+
+.tourism-container h1 {
+  font-size: 40px;
+  margin-bottom: 30px;
+  color: gold;
+  animation: fadeDown 1s ease forwards;
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Categories Buttons ===== */
+
+.categories {
+  margin: 30px 0;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.categories button {
+  padding: 10px 25px;
+  border-radius: 25px;
+  border: none;
+  background: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.categories button:hover {
+  background: gold;
+  transform: scale(1.1);
+}
+
+/* ===== Grid ===== */
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  padding: 40px;
+}
+
+/* ===== Cards Animation ===== */
+
+.result-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border-radius: 20px;
+  text-align: left;
+  color: white;
+  animation: fadeUp 0.8s ease forwards;
+  transition: 0.3s;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.result-card:hover {
+  transform: translateY(-10px) scale(1.03);
+}
+
+/* ===== Image ===== */
+
+.result-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+/* ===== Text ===== */
+
+.result-card h3 {
+  margin-top: 12px;
+  color: gold;
+}
+
+.result-card p {
+  font-size: 14px;
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+.result-card a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #ffd700;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.result-card a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,14 @@
+/* src/index.css */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/*.auth-container {
+  min-height: 100vh;
+  background: url("https://images.unsplash.com/photo-1544986581-efac024faf62")
+    center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}*/
