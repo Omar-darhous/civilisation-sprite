@@ -6,6 +6,7 @@
   background: rgba(30, 20, 5, 0.8);
   backdrop-filter: blur(10px);
   color: #d4af37;
+  z-index: 99999;
 }
 
 .logo {
@@ -127,6 +128,7 @@
     transform: translateX(100%);
     transition: 0.4s ease;
     border-left: 2px solid #d4af37;
+    z-index: 99998;
   }
 
   .nav-links.active {
