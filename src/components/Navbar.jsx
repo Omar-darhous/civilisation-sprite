@@ -13,7 +13,7 @@ export default function Navbar() {
 
   return (
     <nav className="nav">
-      <h2 className="logo">𓂀 EgyptSpirit</h2>
+      <h2 className="logo">𓂀 Civilisation Spirit</h2>
 
       <div className={`nav-links ${open ? "active" : ""}`}>
         <NavLink to="/home">Home</NavLink>

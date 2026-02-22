@@ -1,13 +1,12 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 const firebaseConfig = {
-  apiKey: "AIzaSyD11NRDqARETIDwmWp2h0k5aggqj6g0FfM",
-  authDomain: "civilisation-sprit.firebaseapp.com",
-  projectId: "civilisation-sprit",
-  storageBucket: "civilisation-sprit.firebasestorage.app",
-  messagingSenderId: "155737286502",
-  appId: "1:155737286502:web:30131d038f6522e937caa7",
-  measurementId: "G-0LR3Y373V8",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
 const app = initializeApp(firebaseConfig);
