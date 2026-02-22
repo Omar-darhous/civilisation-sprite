@@ -2,6 +2,8 @@ import "../styles/auth.css";
 import "../styles/login.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { signInWithPopup } from "firebase/auth";
+import { auth, provider } from "../firebase";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -20,7 +22,6 @@ export default function Login() {
     }
 
     if (user.email === email && user.password === password) {
-      // ✅ يعمل exit animation
       document.querySelector(".page").classList.add("exit");
 
       setTimeout(() => {
@@ -28,6 +29,24 @@ export default function Login() {
       }, 400);
     } else {
       alert("Invalid email or password");
+    }
+  };
+
+  // 🟡 Google Login
+  const handleGoogleLogin = async () => {
+    try {
+      const result = await signInWithPopup(auth, provider);
+
+      // نخزن بيانات المستخدم
+      localStorage.setItem("user", JSON.stringify(result.user));
+
+      document.querySelector(".page").classList.add("exit");
+
+      setTimeout(() => {
+        navigate("/Home");
+      }, 400);
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -58,6 +77,15 @@ export default function Login() {
         />
 
         <button type="submit">Login</button>
+
+        {/* زرار Google */}
+        <button
+          type="button"
+          className="google-btn"
+          onClick={handleGoogleLogin}
+        >
+          Sign in with Google
+        </button>
 
         <p onClick={goToSignup}>
           New soul? <span>Create Account</span>
