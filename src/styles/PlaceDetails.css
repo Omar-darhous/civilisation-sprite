@@ -2,31 +2,54 @@
   min-height: 100vh;
   padding: 40px;
   text-align: center;
-  min-height: 100vh;
-  background-image: url("/public/image2.png");
+
+  /* ✅ ملاحظة: في Vite الأفضل تخليها /image2.png لو موجودة في public */
+  background-image: url("/image2.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+
+  /* على الديسكتوب ممكن fixed عادي */
   background-attachment: fixed;
+
   color: white;
+
+  /* طبقة خفيفة عشان النص يبان */
+  position: relative;
+  isolation: isolate;
 }
+
+.details-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: -1;
+}
+
 .page-container {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 20px 0;
 }
 
 .main-image {
-  width: 400px;
+  width: min(650px, 92vw); /* ✅ ريسبونسيف */
+  max-height: 45vh; /* ✅ تمنعها تكبر زيادة */
+  object-fit: cover; /* ✅ قص جميل */
   border-radius: 20px;
-  margin: 20px 0;
+  margin: 20px auto;
+  display: block;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
 }
 
 .description {
-  max-width: 800px;
-  margin: auto;
+  width: min(900px, 92vw); /* ✅ النص في النص */
+  margin: 0 auto;
   font-size: 18px;
-  line-height: 1.6;
+  line-height: 1.8;
+  text-wrap: balance;
 }
 
 .gallery {
@@ -34,15 +57,48 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 16px;
+  width: min(1000px, 95vw);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .gallery img {
-  width: 200px;
+  width: min(220px, 42vw); /* ✅ 2 صور في الصف على الموبايل */
+  aspect-ratio: 4 / 3; /* ✅ شكل ثابت */
+  object-fit: cover; /* ✅ بدون تمدد */
   border-radius: 15px;
-  transition: 0.3s;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
 }
 
 .gallery img:hover {
-  transform: scale(1.05);
+  transform: scale(1.04);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+}
+
+/* ✅ Responsive */
+@media (max-width: 768px) {
+  .details-container {
+    padding: 24px 14px;
+    background-attachment: scroll; /* ✅ مهم للموبايل */
+  }
+
+  .description {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .main-image {
+    max-height: 35vh;
+    border-radius: 18px;
+  }
+}
+
+@media (max-width: 420px) {
+  .gallery img {
+    width: 90vw; /* ✅ صورة واحدة كبيرة لو الشاشة صغيرة جدًا */
+  }
 }

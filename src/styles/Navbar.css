@@ -114,28 +114,48 @@
 @media (max-width: 900px) {
   .nav {
     padding: 20px;
-  }
-
-  .nav-links {
-    position: absolute;
-    top: 80px;
-    right: 0;
-    background: rgba(30, 20, 5, 0.95);
-    flex-direction: column;
-    width: 250px;
-    padding: 20px;
-    gap: 20px;
-    transform: translateX(100%);
-    transition: 0.4s ease;
-    border-left: 2px solid #d4af37;
-    z-index: 99998;
-  }
-
-  .nav-links.active {
-    transform: translateX(0);
+    position: relative;
+    z-index: 99999;
   }
 
   .menu {
     display: block;
+    font-size: 28px;
+    cursor: pointer;
+    color: #d4af37;
+  }
+
+  /* ✅ اخفاء اللينكات افتراضيًا على الموبايل */
+  .nav-links {
+    position: absolute;
+    top: 100%; /* تحت النافبار مباشرة */
+    right: 0;
+
+    width: 250px;
+    padding: 20px;
+    gap: 20px;
+
+    background: rgba(30, 20, 5, 0.95);
+    backdrop-filter: blur(10px);
+    border-left: 2px solid #d4af37;
+    border-bottom-left-radius: 12px;
+
+    display: flex;
+    flex-direction: column;
+
+    /* ✅ مخفي */
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    transition: 0.25s ease;
+
+    z-index: 99998;
+  }
+
+  /* ✅ يظهر لما تدوس على الهامبورجر */
+  .nav-links.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
   }
 }
