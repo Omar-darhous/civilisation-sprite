@@ -9,7 +9,6 @@ import Booking from "./pages/Booking";
 import Tourism from "./pages/Tourism";
 import RareSites from "./pages/Rare";
 import Contact from "./pages/Contact";
-import ChatBot from "./components/ChatBot";
 
 function AnimatedRoutes() {
   return (
@@ -33,7 +32,6 @@ export default function App() {
   return (
     <BrowserRouter>
       <AnimatedRoutes />
-      <ChatBot />
     </BrowserRouter>
   );
 }
